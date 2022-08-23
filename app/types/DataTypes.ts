@@ -1,0 +1,1 @@
+export const GET_MEMBERS_DATA = 'GET_MEMBERS_DATA';
