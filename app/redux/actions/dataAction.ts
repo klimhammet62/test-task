@@ -6,7 +6,7 @@ import {
 	CLOSE_MODAL,
 } from 'types/DataTypes';
 
-export const getMembersAction = (obj: IUser) => {
+export const getMembersAction = (obj: { members: IUser } | {}) => {
 	return {
 		type: GET_MEMBERS_DATA,
 		payload: obj,
