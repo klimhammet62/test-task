@@ -11,7 +11,7 @@ export const TestPage = () => {
 		>
 			<Heading title="Members" />
 			<label className="form-label inline-block mb-2 text-gray-700 dark:text-white">
-				Filterred Data
+				Members List
 			</label>
 			<ProductCards />
 			<Redirect text="Redirect to Home" link="" />
