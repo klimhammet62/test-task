@@ -6,7 +6,7 @@ export const DarkModeToggleButton = () => {
 	const { darkMode, toggleDarkMode } = useDarkMode();
 	return (
 		<button
-			className="text-slate-700 dark:text-slate-300 text-sm items-center mt-1"
+			className="text-gray-700 dark:text-gray-300 text-sm items-center mt-1"
 			onClick={toggleDarkMode}
 		>
 			<span>
