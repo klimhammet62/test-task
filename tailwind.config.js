@@ -9,7 +9,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./app/components/**/*.{js,ts,jsx,tsx}",
   ],
-  /* theme: {
+  theme: {
     colors: {
       primary,
       black: colors.black,
@@ -23,7 +23,7 @@ module.exports = {
         200:
           '#e5e7eb',
         300:
-          '#d1d5db',
+          '#BDBDBD',
         400:
           '#9ca3af',
         500:
@@ -37,9 +37,21 @@ module.exports = {
         900:
           '#111827'
       },
+      orange: {
+        300: '#FFA500'
+      },
+      red: {
+        100: '#FEF2F2',
+        200: '#FEE2F2',
+        300: '#FED2F2',
+        400: '#FECACA',
+        500: '#FCA5A5',
+        600: '#EF4444',
+        700: '#DC2626'
+      }
     },
     extend: {},
-  }, */
+  },
   plugins: [
     plugin(({ addComponents, theme, addUtilities }) => {
       addComponents({

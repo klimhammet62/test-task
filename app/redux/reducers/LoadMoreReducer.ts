@@ -1,15 +1,18 @@
-import { LOAD_MORE_BUTTON } from "../../types/ButtonTypes";
+import { LOAD_MORE_BUTTON } from '../../types/ButtonTypes';
 
 const initState = {
-    loadMore: 0,
+	page: 4,
 };
 
-export const loadMoreReducer = (state = initState, action: any) => {
-    switch (action.type) {
-        case LOAD_MORE_BUTTON:
-            return { ...state, loadMore: action.payload };
+export const loadMoreReducer = (
+	state = initState,
+	action: { type: string }
+) => {
+	switch (action.type) {
+		case LOAD_MORE_BUTTON:
+			return { ...state, page: state.page + 4 };
 
-        default:
-            return state;
-    }
+		default:
+			return state;
+	}
 };

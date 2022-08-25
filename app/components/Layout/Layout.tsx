@@ -8,7 +8,7 @@ export const Layout: FC<PropsWithChildren> = ({
 }) => {
 	return (
 		<div
-			className="flex flex-col min-h-screen h-full items-center dark:bg-slate-800  
+			className="flex flex-col min-h-screen h-full items-center dark:bg-gray-900  
 			transition-color duration-700 transition-color"
 		>
 			<DarkModeToggleButton />
