@@ -4,7 +4,10 @@ const initState = {
 	members: [],
 };
 
-export const getMembersReducer = (state = initState, action: any) => {
+export const getMembersReducer = (
+	state = initState,
+	action: { type: string; payload: boolean }
+) => {
 	switch (action.type) {
 		case GET_MEMBERS_DATA:
 			return { ...state, members: action.payload };

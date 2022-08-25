@@ -13,12 +13,11 @@ export const ProductCards = () => {
 	const modalData = useSelector((state: any) => state.toggleModal);
 	const page = useSelector((state: any) => state.loadMore.page);
 	const [totalPage, setTotalPage] = useState(0);
-	//adaptive image (next image not pixels also rem or smth like and modalka)
 	console.log(modalData?.memberData);
 
 	return (
 		<>
-			<div className="grid grid-cols-4 gap-3">
+			<div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-3 gap-3">
 				{data &&
 					data.slice(0, page).map((member: IUser) => (
 						<div
@@ -28,18 +27,20 @@ export const ProductCards = () => {
 								dispatch(openModalAction(member));
 							}}
 						>
-							<div style={{ borderRadius: '28px', overflow: 'hidden' }}>
-								<Image
-									alt={member.about.split(' ').slice(0, 3).join(' ')}
-									src={member.picture}
-									objectFit="fill"
-									width="231px"
-									height="220px"
-									draggable={false}
-								/>
-							</div>
+							<Image
+								alt={member.about.split(' ').slice(0, 3).join(' ')}
+								src={member.picture}
+								objectFit="fill"
+								width="231px"
+								height="220px"
+								draggable={false}
+								className="rounded-3xl overflow-hidden"
+							/>
 
-							<div className="absolute bottom-0 left-0 bg-white dark:bg-black pt-6 pb-6 w-[231px] rounded-b-[12px]">
+							<div
+								className="absolute bottom-0 left-0 bg-white 
+							dark:bg-black pt-6 pb-6 w-[100%] rounded-b-3xl"
+							>
 								<ul className="left-0">
 									<li className="flex items-center left-0">
 										<h3 className="text-gray-300 ml-1">name: </h3>
@@ -70,7 +71,6 @@ export const ProductCards = () => {
 						aria-modal="true"
 					>
 						<div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-
 						<div className="fixed z-10 inset-0 overflow-y-auto">
 							<div className="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
 								<div
@@ -79,23 +79,62 @@ export const ProductCards = () => {
 								>
 									<button
 										type="button"
-										className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-700 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+										className="w-full inline-flex justify-center rounded-xl border border-transparent shadow-sm px-4 py-2 
+										bg-red-700 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 
+										focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm absolute z-10 right-0 translate-x-5 -translate-y-1/3"
 										onClick={() => dispatch(closeModalAction())}
 									>
 										X
 									</button>
-									<div style={{ borderRadius: '28px', overflow: 'hidden' }}>
-										<Image
-											alt={modalData.memberData.about
-												.split(' ')
-												.slice(0, 3)
-												.join(' ')}
-											src={modalData.memberData.picture}
-											objectFit="fill"
-											width="580px"
-											height="480px"
-											draggable={false}
-										/>
+									<Image
+										alt={modalData.memberData.about
+											.split(' ')
+											.slice(0, 3)
+											.join(' ')}
+										src={modalData.memberData.picture}
+										layout="responsive"
+										objectFit="fill"
+										width="620px"
+										height="480px"
+										className="rounded-3xl overflow-hidden relative z-0"
+										draggable={false}
+									/>
+									<div
+										className="absolute bottom-0 left-0 bg-white dark:bg-black pt-6 pb-6 w-[100%]
+									rounded-b-[12px] z-0"
+									>
+										<ul className="left-0">
+											<li className="flex items-center left-0">
+												<h3 className="text-gray-300 ml-1">name: </h3>
+												<span className="ml-1">
+													{modalData.memberData.name}
+												</span>
+											</li>
+											<li className="flex items-center left-0">
+												<h3 className="text-gray-300 ml-1">age: </h3>
+												<span className="ml-1 max-w-md truncate">
+													{modalData.memberData.age}
+												</span>
+											</li>
+											<li className="flex items-center left-0">
+												<h3 className="text-gray-300 ml-1">email: </h3>
+												<span className="ml-1 max-w-md truncate">
+													{modalData.memberData.email}
+												</span>
+											</li>
+											<li className="flex items-center left-0">
+												<h3 className="text-gray-300 ml-1">email: </h3>
+												<span className="ml-1 max-w-md truncate">
+													{modalData.memberData.phone}
+												</span>
+											</li>
+											<li className="flex items-center left-0">
+												<h3 className="text-gray-300 ml-1">email: </h3>
+												<span className="ml-1 max-w-md truncate">
+													{modalData.memberData.about}
+												</span>
+											</li>
+										</ul>
 									</div>
 								</div>
 								<div className="mt-2"></div>
